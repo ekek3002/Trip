@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@0,300;0,700;1,300&display=swap"
+    rel="stylesheet">
+  <title>Trip</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <link href="fontawesome-free-5.13.0-web/css/fontawesome.css" rel="stylesheet">
+  <link href="fontawesome-free-5.13.0-web/css/brands.css" rel="stylesheet">
+  <link href="fontawesome-free-5.13.0-web/css/solid.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+</head>
+<script>
+  $(document).ready(function(){
+    $('.col-md-6 col-lg-4 mb-5').click(function(){
+        var $href = $(this).attr('href');
+        layer_popup($href);
+    });
+  })
+
+    function layer_popup(el){
+
+        var $el = $(el);        //레이어의 id를 $el 변수에 저장
+
+        $el.fadeIn();
+
+        var $elWidth = ~~($el.outerWidth()),
+            $elHeight = ~~($el.outerHeight()),
+            docWidth = $(document).width(),
+            docHeight = $(document).height();
+
+        // // 화면의 중앙에 레이어를 띄운다.
+        // if ($elHeight < docHeight || $elWidth < docWidth) {
+        //     $el.css({
+        //         marginTop: -$elHeight /2,
+        //         marginLeft: -$elWidth/2
+        //     })
+        // } else {
+        //     $el.css({top: 0, left: 0});
+        // }
+        ($el).css( {left:$(window).scrollLeft() + ($(window).width() - $($el).width()) / 2 });
+        ($el).css( {top:$(window).scrollTop() + ($(window).height() - $($el).height()) / 2 });
+
+
+
+        $el.find('a.btn-layerClose').click(function(){
+            $el.fadeOut(); // 닫기 버튼을 클릭하면 레이어가 닫힌다.
+            return false;
+        });
+
+        $('.layer .dimBg').click(function(){
+            $('.dim-layer').fadeOut();
+            return false;
+        });
+
+    }
+
+
+</script>
+
+<body class="scroll-assist">
+<div id="#top">
+
+  <div class="navsize">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <a class="navbar-brand" href="index.html">TRIP</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">MAIN</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="personal_hyeonggyun.html">LEE HYEONG GYUN</a>
+          </li>
+      </div>
+    </nav>
+  </div>
+
+  
+  <div class="main-container">
+    <div id="profile" style="background-color: #2c3cce">
+      <div id="propic">
+        <!-- 자신의 프로필사진 경로를 아래에 입력 -->
+        <img id="selfi" src="images/hyeong.jpg">
+      </div>
+      <p id="profiletext" style="font-size: 15pt; font-weight: bolder;"> 
+        <strong style="font-size: 30pt;">항상 변화하는<br>개발자 이형균입니다.</strong>
+    </div>
+    <div>
+      <h1 ID="favor">MY FAVORITE</h1>
+    </div>
+
+    <section class="page-section portfolio" id="portfolio">
+      <div class="container">
+        <!-- 자신의 취향 입력(6개) -->
+        <!-- Portfolio Grid Items-->
+        <div class="row">
+          <!-- Portfolio Item 1-->
+          <div class="col-md-6 col-lg-4 mb-5">
+            <a href="javascript:layer_popup(layer1);">
+            <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
+              <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                <div class="portfolio-item-caption-content text-center text-white">
+                  <p style="font-weight: bold">좋아하는 장소</p>
+                  <p style="font-size: 13pt;">낙산공원</p>
+                  
+                </div>
+              </div>
+                <img class="img-fluid" src="images/place2.jpg" alt=""/>
+            </div>
+            </a>
+          </div>
+
+          <!-- Portfolio Item 2-->
+          <div class="col-md-6 col-lg-4 mb-5">
+            <a href="javascript:layer_popup(layer2);">
+            <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal2">
+              <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                <div class="portfolio-item-caption-content text-center text-white">
+                  <p style="font-weight: bold">좋아하는 음식</p>
+                  <p style="font-size: 13pt;">치킨</p>
+                </div>
+              </div>
+              <img class="img-fluid" src="images/food.jpg" alt="" />
+            </div>
+          </a>
+          </div>
+
+          <!-- Portfolio Item 3-->
+          <div class="col-md-6 col-lg-4 mb-5">
+            <a href="javascript:layer_popup(layer3);">
+            <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal3">
+              <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                <div class="portfolio-item-caption-content text-center text-white">
+                  <p style="font-weight: bold">좋아하는 음악</p>
+                  <p style="font-size: 13pt;">유재하 - 사랑하기 때문에</p>
+                </div>
+              </div>
+              <img class="img-fluid" src="images/music.jpg" alt="" />
+            </div>
+          </a>
+          </div>
+          <!-- Portfolio Item 4-->
+          <div class="col-md-6 col-lg-4 mb-5">
+            <a href="javascript:layer_popup(layer4);">
+            <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
+              <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                <div class="portfolio-item-caption-content text-center text-white">
+                  <p style="font-weight: bold">좋아하는 영화</p>
+                  <p style="font-size: 13pt;">사랑의 블랙홀</p>
+                </div>
+              </div>
+              <img class="img-fluid" src="images/movie.jpg" alt="" />
+            </div>
+          </a>
+          </div>
+          <!-- Portfolio Item 5-->
+          <div class="col-md-6 col-lg-4 mb-5 mb-md-0">
+            <a href="javascript:layer_popup(layer5);">
+            <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal5">
+              <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                <div class="portfolio-item-caption-content text-center text-white">
+                  <p style="font-weight: bold">좋아하는 취미</p>
+                  <p style="font-size: 13pt;">독서</p>
+                </div>
+              </div>
+              <img class="img-fluid" src="images/hobby1.jpg" alt="" />
+            </div>
+          </a>
+          </div>
+          <!-- Portfolio Item 6-->
+          <div class="col-md-6 col-lg-4">
+            <a href="javascript:layer_popup(layer6);">
+            <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal6">
+              <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                <div class="portfolio-item-caption-content text-center text-white">
+                  <p style="font-weight: bold">좋아하는 책</p>
+                  <p style="font-size: 13pt;">데미안</p>
+                </div>
+              </div>
+              <img class="img-fluid" src="images/book2.jpg" alt="" />
+            </div>
+          </a>
+          </div>
+           <!-- Portfolio Item 7-->
+          <div class="col-md-6 col-lg-4">
+            <a href="javascript:layer_popup(layer7);">
+            <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal6">
+              <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                <div class="portfolio-item-caption-content text-center text-white">
+                  <p style="font-weight: bold">아이디어</p>
+                  <p style="font-size: 13pt;">Page 1</p>
+                </div>
+              </div>
+              <img class="img-fluid" src="images/131-1318752_add-note-add-note-icon-png-transparent-png.png" alt="" />
+            </div>
+          </a>
+          </div>
+           <!-- Portfolio Item 8-->
+          <div class="col-md-6 col-lg-4">
+            <a href="javascript:layer_popup(layer8);">
+            <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal6">
+              <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                <div class="portfolio-item-caption-content text-center text-white">
+                  <p style="font-weight: bold">아이디어</p>
+                  <p style="font-size: 13pt;">Page 2</p>
+                </div>
+              </div>
+              <img class="img-fluid" src="images/131-1318752_add-note-add-note-icon-png-transparent-png.png" alt="" />
+            </div>
+          </a>
+          </div>
+           <!-- Portfolio Item 9-->
+          <div class="col-md-6 col-lg-4">
+            <a href="javascript:layer_popup(layer9);">
+            <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal6">
+              <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                <div class="portfolio-item-caption-content text-center text-white">
+                  <p style="font-weight: bold">아이디어</p>
+                  <p style="font-size: 13pt;">Page 2</p>
+                </div>
+              </div>
+              <img class="img-fluid" src="images/131-1318752_add-note-add-note-icon-png-transparent-png.png" alt="" />
+            </div>
+          </a>
+          </div6
+
+        </div>
+      </div>
+    </section>
+
+    <div id="layer1" class="pop-layer" style="border: 5px solid #ffd32a;">
+      <span class="modalWindow"></span>
+      <div class="pop-container">
+          <div class="pop-conts">
+              <!--content //-->
+              <img class="img-pop" src="images/place2.jpg" style="border: 3px solid #ffd32a;">
+              <p class="ctxt mb20" style="font-family: 'Nanum Gothic', sans-serif;">
+               저녁 야경이 너무 아름다워 가끔 생각이 많거나 힐링이 필요할 때 찾아갑니다.
+              </p>
+              <div class="btn-r">
+                  <a href="#" class="btn-layerClose">Close</a>
+              </div>
+              <!--// content-->
+          </div>
+      </div>
+  </div>
+
+  <div id="layer2" class="pop-layer" style="border: 5px solid #ffd32a;">
+    <span class="modalWindow"></span>
+    <div class="pop-container">
+        <div class="pop-conts">
+            <!--content //-->
+            <img class="img-pop" src="images/food.jpg" style="border: 3px solid #ffd32a;">
+            <p class="ctxt mb20" style="font-family: 'Nanum Gothic', sans-serif;">
+              "오늘 먹을 치킨을 내일로 미루지 말라"
+            </p>
+            <div class="btn-r">
+                <a href="#" class="btn-layerClose">Close</a>
+            </div>
+            <!--// content-->
+        </div>
+    </div>
+</div>
+
+<div id="layer3" class="pop-layer" style="border: 5px solid #ffd32a;">
+  <span class="modalWindow"></span>
+  <div class="pop-container">
+      <div class="pop-conts">
+          <!--content //-->
+          <img class="img-pop" src="images/music.jpg" style="border: 3px solid #ffd32a;">
+          <p class="ctxt mb20" style="font-family: 'Nanum Gothic', sans-serif;">
+            유재하의 차분한 목소리도 좋지만 가사 때문에 더 좋아하는 노래입니다.
+          </p>
+          <div class="btn-r">
+              <a href="#" class="btn-layerClose">Close</a>
+          </div>
+          <!--// content-->
+      </div>
+  </div>
+</div>
+
+<div id="layer4" class="pop-layer" style="border: 5px solid #ffd32a;">
+  <span class="modalWindow"></span>
+  <div class="pop-container">
+      <div class="pop-conts">
+          <!--content //-->
+          <img class="img-pop" src="images/movie.jpg" style="border: 3px solid #ffd32a;">
+          <p class="ctxt mb20" style="font-family: 'Nanum Gothic', sans-serif;">
+            영화의 원제는 |Groundhog Day| 이며 무뚝뚝한 남자가 사랑을 얻기 위해 변해가는 과정을 다룬 영화입니다.
+          </p>
+          <div class="btn-r">
+              <a href="#" class="btn-layerClose">Close</a>
+          </div>
+          <!--// content-->
+      </div>
+  </div>
+</div>
+
+<div id="layer5" class="pop-layer" style="border: 5px solid #ffd32a;">
+  <span class="modalWindow"></span>
+  <div class="pop-container">
+      <div class="pop-conts">
+          <!--content //-->
+          <img class="img-pop" src="images/hobby1.jpg" style="border: 3px solid #ffd32a;">
+          <p class="ctxt mb20" style="font-family: 'Nanum Gothic', sans-serif;">
+            혼자 집안에서 책을 보는것을 좋아합니다.
+          </p>
+          <div class="btn-r">
+              <a href="#" class="btn-layerClose">Close</a>
+          </div>
+          <!--// content-->
+      </div>
+  </div>
+</div>
+
+<div id="layer6" class="pop-layer" style="border: 5px solid #ffd32a;">
+  <span class="modalWindow"></span>
+  <div class="pop-container">
+      <div class="pop-conts">
+          <!--content //-->
+          <img class="img-pop" src="images/book2.jpg" style="border: 3px solid #ffd32a;">
+          <p class="ctxt mb20" style="font-family: 'Nanum Gothic', sans-serif;">
+            헤르만 헤세의 소설로 모든 인간의 삶은 각자 자신에게로 이르는 길이다. 라는 구절을 좋아합니다. 
+          </p>
+          <div class="btn-r">
+              <a href="#" class="btn-layerClose">Close</a>
+          </div>
+          <!--// content-->
+      </div>
+  </div>
+</div>
+
+<div id="layer7" class="pop-layer" style="border: 5px solid #ffd32a;">
+  <span class="modalWindow"></span>
+  <div class="pop-container">
+      <div class="pop-conts">
+          <!--content //-->
+          <img class="img-pop" src="images/page3.jpg" style="border: 3px solid #ffd32a; width: 650px; height: 700px;">
+          <p class="ctxt mb20" style="font-family: 'Nanum Gothic', sans-serif;">
+            page 1 회의 내용 및 스케치
+          </p>
+          <div class="btn-r">
+              <a href="#" class="btn-layerClose">Close</a>
+          </div>
+          <!--// content-->
+      </div>
+  </div>
+</div>
+
+<div id="layer8" class="pop-layer" style="border: 5px solid #ffd32a;">
+  <span class="modalWindow"></span>
+  <div class="pop-container">
+      <div class="pop-conts">
+          <!--content //-->
+          <img class="img-pop" src="images/page2.jpg" style="border: 3px solid #ffd32a; width: 650px; height: 700px;">
+          <p class="ctxt mb20" style="font-family: 'Nanum Gothic', sans-serif;">
+            page 2 회의 내용 및 스케치
+          </p>
+          <div class="btn-r">
+              <a href="#" class="btn-layerClose">Close</a>
+          </div>
+          <!--// content-->
+      </div>
+  </div>  
+</div>
+
+<div id="layer9" class="pop-layer" style="border: 5px solid #ffd32a;">
+  <span class="modalWindow"></span>
+  <div class="pop-container">
+      <div class="pop-conts">
+          <!--content //-->
+          <img class="img-pop" src="images/page1.jpg" style="border: 3px solid #ffd32a; width: 650px; height: 700px;">
+          <p class="ctxt mb20" style="font-family: 'Nanum Gothic', sans-serif;">
+            page 3 회의 내용 및 스케치
+          </p>
+          <div class="btn-r">
+              <a href="#" class="btn-layerClose">Close</a>
+          </div>
+          <!--// content-->
+      </div>
+  </div>
+</div>
+
+
+
+
+    <footer>
+      <div class="footer">
+        <div id="logo">
+        <a href="https://www.facebook.com/www.bitacademy.net">
+          <img id="fblogo" src="logos/sns_btn(f).png"></a>
+        <a href="https://www.youtube.com/channel/UC7x4kHikdrv-UWoIeUzXDNw">
+          <img id="ytlogo" src="logos/sns_btn3(y).png"></a>
+        <img id="bitlogo" src="logos/footer-logo.png">
+      </div>
+        <p class="footertext" style="font-size:11pt">
+          비트캠프 서울시 서초구 강남대로 459 (서초동, 백암빌딩)｜ 사업자등록번호 : 214-85-24928   
+          (주)비트컴퓨터 서초본원 대표이사 : 조현정 | 문의 : 02-3486-9600 <br> 팩스 : 02-6007-1245
+          통신판매업 신고번호 : 제 서초-00098호 | 개인정보보호관리책임자 : 최종진
+          <strong style="font-size: 9pt; margin-left: 15px;">Copyright (c) 비트캠프 All rights reserved.</strong>
+        </p>
+      </div>
+    </footer>
+
+  </div>
+</div>
+</div>
+<link href="styles.css" rel="stylesheet" />
+<link rel="stylesheet" href="personal.css">
+<!-- Bootstrap core JS-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
